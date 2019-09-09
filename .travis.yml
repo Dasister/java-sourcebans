@@ -3,3 +3,11 @@ jdk: openjdk11
 cache:
   directories:
     - $HOME/.m2
+addons:
+  sonarcloud:
+    organization: "dasister"
+    token:
+      secure: "11pEe4HbsAj4BNScwRsPra9BdycX9Nz+AUe5xzhDeCcV3VEtWCnJzz6ypjK0PHUKEskswU8EUrEPDvZbXyAmFgN3SSsMQsR9Jv/ukcF15o2ajslIvF7uiPDFQ/RZyvZn5Zxgm9MoFhn0nnpb65BdXVvBxV2uDDezXpYfcIs52RDj3Nx2GOaXX16u04bsIUcCNOFx/bAEHuonoyJYytoQfD5m0s8KgzMVVTzPePeikZJp/bi2m7poaTaj6HZ9xQhEkhxE4HKGNO+nz6h7bn6q6ZaRP6uyNK7yLcVQdBPLYbPGU++AidVpK5tTyGV8ZJocdh8lsSm1c8nIBwG0F2l47w/s20EYl8miK1/s0Z1Vc0b3JHkuc3vijbmhrXFEtTrF+ShD8w6x+zEfC0+r353jEZbMZXm0VvMY3aD7xXdzx+oWnIk65LHZzbthdEY6sXNS15LSJ64Rfbq48LkB6fNr+jszXMTFOpeDsumJiddKIlMHszFaKPBqg2IjWxmq+oizKN7txegue1SmmWXYitDilMFFv3VfI6CqGeZXaOfH/TV9J86SHZOGlci0fMga57hRr6Gktj6qbY6bM2IRm9JDYwe8bq8JE+tO7hhwIJJiB0Bjfa4sbyQJKeDm3GZANf4hhXlzGBNb+JgP7JgGo8XVNgYAKezQ511TWYrOcpU7bN4="
+
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Dasister_java-sourcebans
